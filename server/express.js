@@ -18,6 +18,7 @@ app.use((err, req, res, next) => {
 
 app.get("/", (req, res) => {
   console.log("HERE IN THE /");
+  res.send("Hello Bitch Asses!!");
 });
 
 export default app;
