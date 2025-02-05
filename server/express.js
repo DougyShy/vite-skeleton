@@ -16,4 +16,8 @@ app.use((err, req, res, next) => {
   }
 });
 
+app.get("/", (req, res) => {
+  console.log("HERE IN THE /");
+});
+
 export default app;

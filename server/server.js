@@ -4,18 +4,12 @@ import mongoose from "mongoose";
 
 // Connection URL
 mongoose.Promise = global.Promise;
-mongoose.connect(
-  "mongodb+srv://dougscheible:fossil69@cluster0.n9nhf0f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0" ||
-    config.mongoUri,
-  {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-  }
-);
-mongoose.connection.on("error", () => {
-  throw new Error(`unable to connect to database: ${config.mongoUri}`);
-});
+mongoose
+  .connect(
+    "mongodb+srv://dougscheible:fossil69@cluster0.n9nhf0f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  )
+  .then(() => console.log("MongoDB connected..."))
+  .catch((err) => console.log(err));
 
 app.listen(config.port, (err) => {
   if (err) {
